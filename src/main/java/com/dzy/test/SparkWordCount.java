@@ -12,7 +12,7 @@ public class SparkWordCount {
     public static void main(String[] args){
         SparkSession spark = SparkSession.builder().appName("Simple Application").getOrCreate();
         SparkContext sc = spark.sparkContext();
-        RDD<String> rdd = sc.textFile("hdfs://ns1/user/ruban/test/wc/input/input.txt", 20);
+        RDD<String> rdd = sc.textFile("hdfs://ns2/user/ruban/test/wc/input", 20);
         JavaRDD<String> javaRDD = rdd.toJavaRDD();
         javaRDD.foreach(new VoidFunction<String>() {
             @Override
